@@ -1,0 +1,31 @@
+{
+  "name": "bli",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "bun run clean && bun build ./src/index.ts --compile --outfile dist/bin/bli && bun run build:pkg",
+    "build:pkg": "for file in README.md LICENSE.md bli.config.json; do cp $file dist; done",
+    "format": "",
+    "lint": "",
+    "check": "",
+    "prepare:husky": "husky install",
+    "prepare": "bun run prepare:husky"
+  },
+  "devDependencies": {
+    "bnx": "^0.3.1",
+    "bun-types": "latest",
+    "commander": "^11.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "listr2": "^8.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      ""
+    ]
+  }
+}
