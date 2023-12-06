@@ -1,5 +1,5 @@
 export { getConfig } from "./config";
 export {
-	getPackageVersion,
-	isPackageInstalled,
+    getPackageVersion,
+    isPackageInstalled
 } from "./package";

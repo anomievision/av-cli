@@ -1,33 +1,34 @@
-type AnomieConfig = {
-	clean: string[];
-	update: {
-		ignore: string[];
-	};
+type Config = {
+    clean: Array<string>,
+    update: {
+        ignore: Array<string>
+    }
 };
 
-export async function getConfig(): Promise<AnomieConfig> {
-	const potentialPaths = [
-		"/anomie.config.json",
-		"/.anomie/anomie.config.js",
-		"/pkg/anomie.config.json",
-	];
+export async function getConfig(): Promise<Config> {
+    const potentialPaths = [
+        "/anomie.config.json",
+        "/.anomie/anomie.config.json",
+        "/pkg/anomie.config.json"
+    ];
 
-	let config: AnomieConfig | undefined;
+    let config: Config | undefined;
 
-	for (const path of potentialPaths) {
-		const filePath = `${process.cwd()}${path}`;
-		if (await Bun.file(filePath).exists()) {
-			config = await Bun.file(filePath).json();
-			break; // Stop searching once a valid config is found
-		}
-	}
+    for await (const path of potentialPaths) {
+        const file = Bun.file(`${process.cwd()}${path}`);
 
-	return (
-		config || {
-			clean: [],
-			update: {
-				ignore: [],
-			},
-		}
-	);
+        if (await file.exists()) {
+            config = await file.json();
+            break;
+        }
+    }
+
+    return (
+        config ?? {
+            clean: [],
+            update: {
+                ignore: []
+            }
+        }
+    );
 }
