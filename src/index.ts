@@ -1,4 +1,5 @@
-import { addClean, addHusky, addInit, addUpdate } from "./commands";
+import { addClean, addInit, addUpdate, addUpgrade } from "./commands";
+import { version } from "./constants/version";
 import { Command } from "commander";
 
 const program = new Command();
@@ -6,11 +7,11 @@ const program = new Command();
 program
     .name("anomie")
     .description("AnomieVision CLI for managing our projects")
-    .version("0.0.1");
+    .version(version, "-v, --version", "output the current version");
 
 program.addCommand(addInit());
-program.addCommand(addUpdate());
 program.addCommand(addClean());
-program.addCommand(addHusky());
+program.addCommand(addUpdate());
+program.addCommand(addUpgrade());
 
 program.parse(process.argv);

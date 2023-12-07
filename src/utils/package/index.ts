@@ -1,8 +1,4 @@
-type PackageJSON = {
-    dependencies?: Record<string, string>,
-    devDependencies?: Record<string, string>,
-    peerDependencies?: Record<string, string>
-};
+import type { PackageJSON } from "../../types";
 
 export async function getPackageVersion(packageName: string): Promise<string | null> {
     try {

@@ -6,8 +6,9 @@ export function addUpdate(): Command {
     const command = new Command()
         .command("update")
         .description("update project")
+        .option("-i, --install", "install dependencies")
         .option("-w, --write", "write changes to package.json")
-        .action(async ({ write }) => {
+        .action(async ({ install, write }: { install: boolean, write: boolean }) => {
             const config = await getConfig();
 
             const writeFlag = write ? " --write" : "";
@@ -18,6 +19,9 @@ export function addUpdate(): Command {
             const result = await $(`bunx taze major${args}`);
 
             console.log(result.replace(/npm/g, "bun"));
+
+            if (install)
+                await $("bun install");
         });
 
     return command;
