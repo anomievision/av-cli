@@ -36,7 +36,6 @@
         "no-class-assign": "error",
         "no-compare-neg-zero": "error",
         "no-cond-assign": "error",
-        "no-console": "warn",
         "no-constant-binary-expression": "error",
         "no-constant-condition": "error",
         "no-constructor-return": "error",
@@ -128,7 +127,10 @@
         ],
         "func-style": [
             "error",
-            "declaration"
+            "declaration",
+            {
+                "allowArrowFunctions": true
+            }
         ],
         "no-empty": [
             "error",
@@ -199,7 +201,15 @@
         "@typescript-eslint/no-unsafe-member-access": "error",
         "@typescript-eslint/no-unsafe-return": "error",
         "@typescript-eslint/no-unsafe-unary-minus": "error",
-        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true,
+                "argsIgnorePattern": "^_"
+            }
+        ],
         "@typescript-eslint/no-useless-constructor": "error",
         "@typescript-eslint/no-useless-empty-export": "warn",
         "@typescript-eslint/no-var-requires": "error",
@@ -254,7 +264,8 @@
                     "strictCamelCase",
                     "UPPER_CASE"
                 ],
-                "leadingUnderscore": "allow"
+                "leadingUnderscore": "allow",
+                "trailingUnderscore": "allow"
             },
             {
                 "selector": "function",
@@ -298,7 +309,7 @@
             {
                 "selector": "classMethod",
                 "format": [
-                    "strictCamelCase"
+                    "camelCase"
                 ]
             },
             {
@@ -551,7 +562,7 @@
         "@stylistic/max-len": [
             "error",
             {
-                "code": 210
+                "code": 280
             }
         ],
         "@stylistic/max-statements-per-line": [

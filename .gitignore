@@ -183,8 +183,5 @@ bun.lockb
 # Private
 .private
 
-# Development
-.anomie
-
 # Release
 pkg

@@ -12,15 +12,30 @@
     "downlevelIteration": true,
     "skipLibCheck": true,
     "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
       "bun-types"
-    ]
+    ],
+    "paths": {
+      "#commands/*": [
+        "./src/commands/*"
+      ],
+      "#context": [
+        "./src/context.ts"
+      ],
+      "#utils": [
+        "./utils/index.ts"
+      ]
+    },
   },
-  "exclude": [
-    ".private",
-    "node_modules",
+  "include": [
+    "constants/**/*",
+    "src/**/*",
+    "tests/**/*",
+    "utils/**/*"
   ]
 }

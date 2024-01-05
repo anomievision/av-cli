@@ -1,1 +1,1 @@
-# Anomie CLI
+# AnomieVision | Command Line Interface (CLI)

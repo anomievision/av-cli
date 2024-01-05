@@ -3,20 +3,19 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "bun run clean && bun build ./src/index.ts --compile --outfile dist/bin/anomie && bun run build:pkg",
-    "build:pkg": "for file in README.md LICENSE anomie.config.json; do cp $file dist; done",
-    "check": "eslint \"src/**/*.ts\"",
-    "format": "",
-    "lint": "",
+    "clean": "rm -rf ./dist",
+    "builder": "bun compile && bun package",
+    "compile": "bun clean && bun build ./src/index.ts --compile --outfile dist/cli",
+    "package": "for file in README.md LICENSE anomie.config.json; do cp $file dist; done",
+    "lint": "eslint \"**/*.ts\"",
+    "check": "eslint \"**/*.ts\" --fix",    
     "prepare:husky": "husky install",
-    "prepare": "bun run prepare:husky"
+    "postinstall": "bun prepare:husky"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.0",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
-    "bnx": "^0.3.1",
     "bun-types": "latest",
     "commander": "^11.1.0",
     "eslint": "^8.55.0",
@@ -24,7 +23,7 @@
     "eslint-plugin-import": "^2.29.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "listr2": "^8.0.0",
+    "tasai": "^0.1.0",
     "typescript": "^5.3.3"
   },
   "lint-staged": {

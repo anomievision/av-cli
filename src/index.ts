@@ -6,7 +6,7 @@ const program = new Command();
 
 program
     .name("anomie")
-    .description("AnomieVision CLI for managing our projects")
+    .description("CLI for managing our projects")
     .version(version, "-v, --version", "output the current version");
 
 program.addCommand(addInit());
