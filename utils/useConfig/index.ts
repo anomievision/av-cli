@@ -5,11 +5,11 @@ type Config = {
     }
 };
 
-export async function getConfig(): Promise<Config> {
+export async function useConfig(): Promise<Config> {
     const potentialPaths = [
-        "/anomie.config.json",
-        "/.anomie/anomie.config.json",
-        "/pkg/anomie.config.json"
+        "/cli.config.json",
+        "/.cli/cli.config.json",
+        "/pkg/cli.config.json"
     ];
 
     let config: Config | undefined;

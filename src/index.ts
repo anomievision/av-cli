@@ -1,5 +1,5 @@
+import { version } from "../package.json";
 import { addClean, addInit, addUpdate, addUpgrade } from "./commands";
-import { version } from "./constants/version";
 import { Command } from "commander";
 
 const program = new Command();

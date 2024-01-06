@@ -1,6 +1,4 @@
-import type { PackageJSON } from "../../types";
-
-export async function getPackageVersion(packageName: string): Promise<string | null> {
+export async function usePackageVersion(packageName: string): Promise<string | null> {
     try {
         const packageJson: PackageJSON = await Bun.file(`${process.cwd()}/package.json`).json();
         let version = null;

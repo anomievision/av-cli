@@ -2,10 +2,10 @@ import { describe, expect, test } from "bun:test";
 // import { beforeEach } from "bun:test";
 import { $ } from "bnx";
 
-describe("anomie", () => {
+describe("cli", () => {
     test("--help", async () => {
-        const command = await $("dist/bin/anomie --help");
+        const command = await $("dist/cli --help");
 
-        expect(command).toContain("Usage: anomie [options] [command]");
+        expect(command).toContain("Usage: cli [options] [command]");
     });
 });

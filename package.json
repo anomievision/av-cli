@@ -1,5 +1,6 @@
 {
   "name": "anomie-cli",
+  "version": "0.0.1",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
@@ -8,7 +9,7 @@
     "compile": "bun clean && bun build ./src/index.ts --compile --outfile dist/cli",
     "package": "for file in README.md LICENSE anomie.config.json; do cp $file dist; done",
     "lint": "eslint \"**/*.ts\"",
-    "check": "eslint \"**/*.ts\" --fix",    
+    "check": "eslint \"**/*.ts\" --fix",
     "prepare:husky": "husky install",
     "postinstall": "bun prepare:husky"
   },
@@ -23,6 +24,7 @@
     "eslint-plugin-import": "^2.29.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "ora": "^8.0.1",
     "tasai": "^0.1.0",
     "typescript": "^5.3.3"
   },

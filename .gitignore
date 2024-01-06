@@ -184,4 +184,5 @@ bun.lockb
 .private
 
 # Release
+.anomie
 pkg

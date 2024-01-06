@@ -1,4 +1,4 @@
-import { getConfig } from "../../../utils";
+import { useConfig } from "#utils";
 import { $ } from "bnx";
 import { Command } from "commander";
 
@@ -9,7 +9,7 @@ export function addUpdate(): Command {
         .option("-i, --install", "install dependencies")
         .option("-w, --write", "write changes to package.json")
         .action(async ({ install, write }: { install: boolean, write: boolean }) => {
-            const config = await getConfig();
+            const config = await useConfig();
 
             const writeFlag = write ? " --write" : "";
             const excludeFlag = config.update.ignore.length > 0 ? ` --exclude ${config.update.ignore.join(" ")}` : "";
